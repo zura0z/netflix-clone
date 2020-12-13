@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import Nav from "./Nav";
 import HomePage from "./Pages/HomePage";
@@ -28,7 +28,7 @@ const App = () => {
     selectedMovie || searchedMovies
       ? (document.body.style.overflowY = "hidden")
       : (document.body.style.overflowY = "scroll");
-      
+
     searchedMovies ? setBlack(true) : setBlack(false);
   }, [selectedMovie, searchedMovies]);
 
@@ -52,7 +52,8 @@ const App = () => {
           />
         ) : null}
         <Switch>
-          <Route path="/" exact component={HomePage} />
+          <Redirect exact from="/" to="/Home" />
+          <Route path="/Home" exact component={HomePage} />
           <Route path="/TV-Shows" component={TVShowsPage} />
           <Route path="/Movies" component={MoviesPage} />
           <Route path="/Latest" component={LatestPage} />
