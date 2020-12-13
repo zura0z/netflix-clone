@@ -1,0 +1,156 @@
+.movie-details-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 30;
+  overflow-y: scroll;
+}
+.movie-details-expanded {
+  animation: fadeIn 400ms ease-out;
+  margin: 35px auto;
+  width: 55%;
+  border-radius: 10px;
+  background: rgb(20, 20, 20);
+  z-index: 40;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+}
+.movie-details-close {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(20, 20, 20);
+  font-weight: 300;
+  width: 35px;
+  height: 35px;
+  font-size: 30px;
+  border-radius: 50%;
+  line-height: 110%;
+  top: 15px;
+  right: 15px;
+}
+.movie-details-description {
+  padding: 10px 10px;
+  color: white;
+}
+.movie-details-title {
+  margin-bottom: 5px;
+  font-size: 2vw;
+  z-index: 10;
+}
+.movie-details-overview {
+  padding-bottom: 20px;
+}
+.movie-details-video {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.movie-details-genresAndDate {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  font-size: 1.2vw;
+}
+.movie-details-image {
+  width: 100%;
+  height: 0;
+  padding-top: 57%;
+  border-radius: 10px 10px 0 0;
+  background-size: contain;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.movie-details-image::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  height: 0;
+  width: 100%;
+  padding-top: 56.4%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1)
+  );
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+}
+@keyframes overlay {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .movie-details-expanded {
+    width: 90%;
+  }
+  .movie-details-title {
+    font-size: 20px;
+  }
+  .movie-details-genresAndDate {
+    font-size: 14px;
+  }
+}
+
+
+/* SCROLLBAR */
+.movie-details-overlay::-webkit-scrollbar {
+  width: 16px;
+}
+.movie-details-overlay::-webkit-scrollbar-track {
+  background-color: rgb(20, 20, 20);
+}
+.movie-details-overlay::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-button:single-button {
+  background-color: rgb(20, 20, 20);
+  border-style: solid;
+  height: 16px;
+  width: 16px;
+}
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent white transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: white transparent transparent transparent;
+}
+/* SCROLLBAR */

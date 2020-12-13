@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Catamaran", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+}
+body {
+  background: linear-gradient(
+    rgb(0, 0, 0) 10%,
+    rgb(20, 20, 20) 60%,
+    rgb(20, 20, 20)
+  );
+}
+body::-webkit-scrollbar {
+  width: 16px;
+}
+body::-webkit-scrollbar-track {
+  background-color: rgb(20, 20, 20);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-button:single-button {
+  background-color: rgb(20, 20, 20);
+  border-style: solid;
+  height: 16px;
+  width: 16px;
+}
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent white transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: white transparent transparent transparent;
+}
+#nothing-to-see-here {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vw;
+}
+#wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+#root {
+  overflow: hidden;
+}

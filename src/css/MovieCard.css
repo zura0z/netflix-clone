@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  color: white;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.blank {
+  display: none;
+}
+.details-third-row{
+  padding-bottom: 3px;
+}
+.details-first-row,
+.details-second-row,
+.details-third-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 96%;
+}
+.first-column-icons{
+  display: flex;
+}
+.details-name {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  flex: 0.95;
+}
+.details-date {
+  font-family: "Inter", sans-serif;
+  align-self: flex-start;
+  font-size: 8px;
+  font-weight: 400;
+  padding: 1.2px 2.4px;
+  margin-top: 2px;
+  border-radius: 1px;
+  border: 0.1px solid white;
+}
+.details-icon {
+  position: relative;
+  border: 1.6px solid rgb(170, 170, 170);
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  transition: 100ms ease-out;
+}
+.details-icon:hover {
+  border-color: white;
+  transition: 100ms ease-in;
+}
+.details-icon:first-child {
+  background-color: white;
+  border-color: white;
+  transition: 100ms ease-out;
+}
+.details-icon:first-child:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.85);
+  transition: 100ms ease-in;
+}
+.fa-play-icon {
+  color: black;
+}
+.details-icon:not(:last-child) {
+  margin-right: 5px;
+}
+.fa-plus,
+.fa-check,
+.fa-play-icon,
+.fa-thumbs-up,
+.fa-thumbs-down,
+.fa-chevron-down {
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fa-chevron-down {
+  top: 53%;
+}
+.fa-play-icon {
+  top: 54%;
+  left: 53%;
+}
+.fa-thumbs-down {
+  left: 52%;
+}
+.fa-thumbs-up {
+  left: 52%;
+  top: 47.5%;
+}
+.play-icon {
+  font-size: 17px;
+}
+
+
+.check-icon::before,
+.plus-icon::before,
+.thumbsUp-icon::before,
+.thumbsDown-icon::before,
+.info-icon::before {
+  position: absolute;
+  width: max-content;
+  pointer-events: none;
+  color: black;
+  background-color: #fff;
+  padding: 2.5px 9px;
+  top: -40px;
+  left: 50%;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateX(-50%);
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+}
+.check-icon::after,
+.plus-icon::after,
+.thumbsUp-icon::after,
+.thumbsDown-icon::after,
+.info-icon::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.check-icon::before{
+  content: "Remove from My List";
+}
+.plus-icon::before {
+  content: "Add to My List";
+}
+.thumbsUp-icon::before {
+  content: "I like this";
+}
+.thumbsDown-icon::before {
+  content: "Not for me";
+}
+.info-icon::before {
+  content: "More info";
+}
+
+.check-icon:hover::before,
+.plus-icon:hover::before,
+.thumbsUp-icon:hover::before,
+.thumbsDown-icon:hover::before,
+.info-icon:hover::before {
+  opacity: 1;
+}
+.check-icon:hover::after,
+.plus-icon:hover::after,
+.thumbsUp-icon:hover::after,
+.thumbsDown-icon:hover::after,
+.info-icon:hover::after {
+  border-top: 8px solid white;
+}
+
+.details-genres {
+  font-family: "Poppins", sans-serif;
+  flex: 0.95;
+  font-size: 9.5px;
+}
+.details-match {
+  font-family: "Poppins", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #3CCA3C;
+}

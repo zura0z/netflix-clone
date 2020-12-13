@@ -1,0 +1,27 @@
+.search-results-container {
+  background: rgb(20, 20, 20);
+  position: fixed;
+  top: 65px;
+  height: 100%;
+  width: 100%;
+  z-index: 25;
+  overflow-y: auto;
+}
+.search-results {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  width: 98%;
+}
+
+@media (max-width: 1000px) {
+  .search-results-container {
+    top: 45px;
+  }
+}
+@media (max-width: 860) {
+  .search-results-container {
+    top: 40px;
+  }
+}

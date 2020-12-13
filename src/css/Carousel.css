@@ -1,0 +1,173 @@
+.carousel-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+#car {
+  height: 140px;
+}
+#car:hover {
+  z-index: 2;
+  transition-delay: 600ms;
+}
+.carousel-title {
+  font-size: 2vw;
+  color: white;
+  margin-left: 5%;
+}
+.movie-container {
+  width: 100%;
+  transition: 200ms cubic-bezier(0, 1.1, 0.96, 0.99);
+}
+.movie-container:hover {
+  transform: scale(1.5) translate(-12px, -40px);
+  z-index: 10;
+  transition: 260ms cubic-bezier(0.35, 0.84, 0.59, 0.93);
+  transition-delay: 600ms;
+}
+.movie-container:first-child:hover {
+  transform: scale(1.5) translate(29px, -40px);
+}
+.movie-container:last-child:hover {
+  transform: scale(1.5) translate(-55px, -40px);
+}
+.movie-container:hover .movie {
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0px -2px 2px 2px rgba(0, 0, 0, 0.5);
+  transition-delay: 600ms;
+}
+.movie-container::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 99.5%;
+  height: 100px;
+  background: rgb(30, 30, 30);
+  width: calc(100% + 73.8px);
+  opacity: 0;
+  z-index: -5;
+}
+.movie-container:hover::before {
+  cursor: pointer;
+  pointer-events: all;
+  transition: 200ms;
+  transition-delay: 600ms;
+  opacity: 1;
+  box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 3px 3px;
+}
+
+.movie-container:hover .movie-details {
+  cursor: pointer;
+  height: 90px;
+  width: calc(100% + 73px);
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 600ms;
+}
+.movie {
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  height: 140px;
+  width: auto;
+  border-radius: 3px;
+}
+.swiper-wrapper {
+  transition-timing-function: ease;
+}
+.swiper-slide:nth-child(odd),
+.swiper-slide:nth-child(even) {
+  width: 175px;
+}
+.swiper-slide:first-child {
+  margin-left: 5%;
+}
+.swiper-slide:last-child {
+  margin-right: 75px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  opacity: 0 !important;
+}
+.swiper-button-next::before,
+.swiper-button-prev::before {
+  content: "";
+  position: absolute;
+  pointer-events: all;
+  height: 140px;
+  width: 50px;
+  opacity: 0;
+  z-index: -1;
+  transition: 200ms ease-in;
+}
+.swiper-button-prev::before {
+  left: -10;
+  background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+.swiper-button-next::before {
+  right: -10;
+  background: linear-gradient(to left, rgb(0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+#car:hover > .swiper-button-next::before,
+#car:hover > .swiper-button-prev::before {
+  transition: 400ms ease-out;
+  opacity: 1;
+}
+#car:hover > .swiper-button-prev,
+#car:hover > .swiper-button-next {
+  transition: 400ms ease-out;
+  opacity: 1 !important;
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  display: none !important;
+}
+.swiper-container {
+  overflow: visible !important;
+}
+@media (max-width: 1000px) {
+  .carousel-title {
+    font-size: 16px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+  .movie-carousel::before,
+  .movie-carousel::after {
+    background: rgba(0, 0, 0, 0);
+  }
+  .movie-container:hover {
+    transform: none;
+    z-index: 0;
+    transition: none;
+    transition-delay: 0;
+  }
+  .movie-container:first-child:hover,
+  .movie-container:last-child:hover {
+    transform: none;
+  }
+  .movie-container:hover .movie {
+    border-radius: 3px;
+    box-shadow: none;
+    transition-delay: 0;
+  }
+  .movie-container:hover .movie-details,
+  .movie-container:hover::before {
+    display: none;
+  }
+  .movie-container {
+    margin: 0 0;
+  }
+  .movie,
+  #car {
+    height: 14.3vw;
+  }
+  .swiper-slide:nth-child(odd),
+  .swiper-slide:nth-child(even) {
+    width: 26vw;
+  }
+}
