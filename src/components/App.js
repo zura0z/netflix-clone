@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 import Nav from "./Nav";
 import HomePage from "./Pages/HomePage";
@@ -40,7 +40,7 @@ const App = () => {
           close={() => setSelectedMovie(null)}
         />
       ) : null}
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Nav
           black={black}
           searchedMovies={(movies) => setSearchedMovies(movies)}
@@ -52,8 +52,7 @@ const App = () => {
           />
         ) : null}
         <Switch>
-          <Redirect exact from="/" to="/Home" />
-          <Route path="/Home" exact component={HomePage} />
+          <Route path="/" exact component={HomePage} />
           <Route path="/TV-Shows" component={TVShowsPage} />
           <Route path="/Movies" component={MoviesPage} />
           <Route path="/Latest" component={LatestPage} />
