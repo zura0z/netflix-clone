@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import Nav from "./Nav";
 import HomePage from "./Pages/HomePage";
@@ -40,25 +40,23 @@ const App = () => {
           close={() => setSelectedMovie(null)}
         />
       ) : null}
-      <Router basename={process.env.PUBLIC_URL}>
-        <Nav
-          black={black}
-          searchedMovies={(movies) => setSearchedMovies(movies)}
+      <Nav
+        black={black}
+        searchedMovies={(movies) => setSearchedMovies(movies)}
+      />
+      {searchedMovies ? (
+        <SearchResults
+          searchedMovies={searchedMovies}
+          onSelectMovie={(movie) => setSelectedMovie(movie)}
         />
-        {searchedMovies ? (
-          <SearchResults
-            searchedMovies={searchedMovies}
-            onSelectMovie={(movie) => setSelectedMovie(movie)}
-          />
-        ) : null}
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/TV-Shows" component={TVShowsPage} />
-          <Route path="/Movies" component={MoviesPage} />
-          <Route path="/Latest" component={LatestPage} />
-          <Route path="/MyList" component={MyListPage} />
-        </Switch>
-      </Router>
+      ) : null}
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/TV-Shows" component={TVShowsPage} />
+        <Route path="/Movies" component={MoviesPage} />
+        <Route path="/Latest" component={LatestPage} />
+        <Route path="/MyList" component={MyListPage} />
+      </Switch>
       <Footer />
     </div>
   );
