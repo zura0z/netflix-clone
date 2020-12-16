@@ -6,7 +6,7 @@ import { getGenre } from "../utils";
 import "../css/MovieDetails.css";
 
 const MovieDetails = ({ movie, close }) => {
-  const API_KEY = "AIzaSyBJTf5rMEuISZX_8rRwzx1v6FW2Bypad-0";
+  const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE;
   const [height, setHeight] = useState(window.pageYOffset + 6);
   const [video, setVideo] = useState(null);
   const details = useRef();
@@ -15,7 +15,7 @@ const MovieDetails = ({ movie, close }) => {
   useEffect(() => {
     YTSearch(
       {
-        key: API_KEY,
+        key: YOUTUBE_API_KEY,
         term: `${movie.title || movie.name} Trailer`,
       },
       (videos) => {
